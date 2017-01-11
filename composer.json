@@ -1,0 +1,35 @@
+{
+	"name" : "php-platform/json-cache",
+	"type" : "library",
+	"keywords" : [
+		"php-platform",
+		"caching",
+		"cache",
+		"metadata",
+		"json"
+	],
+	"homepage" : "https://github.com/PHPPlatform/json-cache",
+	"authors" : [{
+			"name" : "Raghavendra K R",
+			"email" : "krraghavendra@yahoo.co.in",
+			"homepage" : "http://krraghavendra.in",
+			"role" : "Software Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=5.3"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "~4.8"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"PhpPlatform\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"PhpPlatform\\Tests\\" : "tests/"
+		}
+	}
+}
