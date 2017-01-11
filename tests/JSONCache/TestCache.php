@@ -32,11 +32,11 @@ class TestCache extends \PHPUnit_Framework_TestCase{
 		$cacheInstance = Cache::getInstance();
 		
 		// hardcode cache using reflection
-		$reflectionProperty = new \ReflectionProperty(Cache::class, "settings");
+		$reflectionProperty = new \ReflectionProperty(get_class($cacheInstance), "settings");
 		$reflectionProperty->setAccessible(true);
 		$reflectionProperty->setValue($cacheInstance, $this->testCache);
 		
-		$reflectionProperty = new \ReflectionProperty(Cache::class, "cacheFileName");
+		$reflectionProperty = new \ReflectionProperty(get_class($cacheInstance), "cacheFileName");
 		$reflectionProperty->setAccessible(true);
 		$cachefile = $reflectionProperty->getValue($cacheInstance);
 		file_put_contents($cachefile, json_encode($this->testCache));
