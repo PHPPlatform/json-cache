@@ -104,11 +104,12 @@ class Cache{
     		
     	}catch (\Exception $e){
     		$this->settings = $originalSettings;
-    		return FALSE;
-    	}finally {
     		flock($fp, LOCK_UN);
     		fclose($fp);
+    		return FALSE;
     	}
+    	flock($fp, LOCK_UN);
+    	fclose($fp);
     	return TRUE;
     }
     
