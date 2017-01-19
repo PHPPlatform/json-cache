@@ -82,7 +82,7 @@ class Cache{
     			}
     			$this->settings = json_decode($contents,true);
     			if($this->settings === NULL){
-    				$this->settings = array();
+    				$this->settings = $originalSettings;
     			}
     		}else{
     			// dont do anything;
@@ -95,6 +95,8 @@ class Cache{
     		}
     		 
     		if($fileLock){
+    			ftruncate($fp,0);
+    			rewind($fp);
     			if(fwrite($fp, $jsonSettings,strlen($jsonSettings)) === FALSE){
     				throw new \Exception();
     			}
