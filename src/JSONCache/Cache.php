@@ -75,6 +75,7 @@ class Cache{
     		$fp = fopen($this->cacheFileName, "c+");
     		$fileLock = flock($fp, LOCK_EX | LOCK_NB);
     		if($fileLock){
+    			clearstatcache(true,$this->cacheFileName);
     			if(filesize($this->cacheFileName) > 0){
     			    $contents = fread($fp, filesize($this->cacheFileName));
     			}else{
